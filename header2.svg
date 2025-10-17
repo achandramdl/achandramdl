@@ -1,0 +1,47 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="calmWater" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#a0eaff"/>
+      <stop offset="60%" stop-color="#3cb5f5"/>
+      <stop offset="100%" stop-color="#006cae"/>
+    </linearGradient>
+
+    <!-- Seamless 1600px wave -->
+    <path id="wave" d="M0 200 
+      C100 180 200 220 300 200 
+      S500 180 600 200 
+      S800 220 900 200 
+      S1100 180 1200 200 
+      S1400 220 1500 200 
+      L1600 400 L0 400 Z" />
+  </defs>
+
+  <!-- Background sky -->
+  <rect width="100%" height="100%" fill="#87d5ff"/>
+
+  <!-- Water base -->
+  <rect y="150" width="100%" height="250" fill="url(#calmWater)"/>
+
+  <!-- Moving wave -->
+  <g>
+    <use href="#wave" fill="url(#calmWater)" opacity="0.7"/>
+    <use href="#wave" x="1600" fill="url(#calmWater)" opacity="0.7"/>
+    <animateTransform attributeName="transform" type="translate"
+                      values="0,0;-1600,0" dur="10s" repeatCount="indefinite"/>
+  </g>
+
+  <!-- Small red sailboat -->
+  <g transform="translate(400,150)">
+    <!-- Boat hull -->
+    <path d="M-20,0 Q0,15 20,0 Z" fill="#8B0000"/>
+    <!-- Mast -->
+    <rect x="-1.5" y="-40" width="3" height="40" fill="#333"/>
+    <!-- Sail -->
+    <polygon points="0,-40 0,0 25,-20" fill="#ff4040"/>
+    <!-- Gentle bobbing animation -->
+    <animateTransform attributeName="transform" type="translate"
+                      values="400,150;400,145;400,150" dur="2s"
+                      repeatCount="indefinite" additive="replace"/>
+  </g>
+</svg>
+
